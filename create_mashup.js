@@ -78,5 +78,10 @@ HowMany.prototype.onHistory = function(history) {
     $('#coffee_counts').html(coffee_counts + '');
 }
 $(function() {
-  new HowMany('NDP5V3HX44XRYA51JQWLMV500PXCCB4ZJ23DZJPNYDYMP5TU', 'https://foursquare.com/', 'https://api.foursquare.com/').run();
+
+  if(window.location.href.indexOf('http://localhost/knowme') >= 0){
+    new HowMany('NDP5V3HX44XRYA51JQWLMV500PXCCB4ZJ23DZJPNYDYMP5TU', 'https://foursquare.com/', 'https://api.foursquare.com/').run();
+  }    
+  else 
+    new HowMany('insert_pradeep_nayak_token_here', 'https://foursquare.com/', 'https://api.foursquare.com/').run();
 });

@@ -1,0 +1,4 @@
+1. Compute the total money spent on all the expenses and show an equivalent of what could have been bought.
+for example, if you've spent like 50,000$, you could show an image of a second hand porsche!
+
+2. coffee frequency? Number of coffees per week!

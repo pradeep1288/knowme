@@ -37,6 +37,7 @@ function getRandomCoffeeFunFact(coffee_count)
 {
   //Izaaz's code here.
 }
+
 /**
  * Given response from venuehistory, build a map from venue ID to history item.
  * @private

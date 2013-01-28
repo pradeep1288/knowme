@@ -10,35 +10,44 @@ HowMany.prototype.run = function() {
 }
 
 /**
+* Compute the number of coffee's consumed
+*/
+
+function getCoffeeCount(response)
+{
+    var coffee_count = 0;
+
+    for (var i=0; i<response.length; i++)
+    {
+      var data = response[i]['venue'];
+      if (data.categories.length !=0 )
+      {
+        if (data.categories[0].indexOf('Coffee') > -1)
+        {
+          coffee_counts ++;
+        }
+      }
+    }
+  return coffee_count;
+}
+/**
+* Gets a random funny fact based on the number of coffee's consumed
+*/
+function getRandomCoffeeFunFact(coffee_count)
+{
+  //Izaaz's code here.
+}
+/**
  * Given response from venuehistory, build a map from venue ID to history item.
  * @private
  */
 HowMany.prototype.onHistory = function(history) {
   var coffee_html = [];
-  var coffee_counts = 0;
-  for (var i = 0; i < history.length; i++) {
-    var entry = history[i]['venue'];
-    if (entry.categories.length != 0){
-    if (entry.menu == undefined )
-    {
-      //deal with non food places here
-    }
-    else {
-      //deal with food places here  
-       if (entry.categories[0].name.indexOf('Coffee') > -1) {
-        coffee_counts++;
-        coffee_html.push(entry.location.address, ', ', entry.location.city, '<br/>');
-       }
-      else if (entry.categories[0].name.indexOf('Restaurant') > -1) {
-        restaurants_counts++; 
-        restaurants_html.push(entry.name, ', ', entry.location.address, ', ', entry.location.city, '<br/>');
-      }     
-    }
-    }
-  }
-    $('#coffee_html').html(coffee_html.join(''));
-    $('#coffee_counts').html(coffee_counts + '');
+  var coffee_counts = getCoffeeCount(history);
+  $('#coffee_html').html(coffee_html.join(''));
+  $('#coffee_counts').html(coffee_counts + '');
 }
+
 $(function() {
 
   if(window.location.href.indexOf('http://localhost/knowme') >= 0){

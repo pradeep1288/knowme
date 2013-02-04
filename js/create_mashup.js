@@ -22,7 +22,7 @@ function getCoffeeCount(response)
       var data = response[i]['venue'];
       if (data.categories.length !=0 )
       {
-        if (data.categories[0].indexOf('Coffee') > -1)
+        if (data.categories[0].name.indexOf('Coffee') > -1)
         {
           coffee_counts ++;
         }

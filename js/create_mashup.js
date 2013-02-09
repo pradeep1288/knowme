@@ -27,7 +27,7 @@ function getCoffeeCount(response)
       {
         if (data.categories[0].name.indexOf('Coffee') > -1)
         {
-          coffee_counts ++;
+          coffee_count ++;
         }
       }
     }
@@ -40,7 +40,7 @@ function getRandomCoffeeFunFact(coffee_count)
 {
     var myJson = $.parseJSON(coffee_json);
     var range = myJson.range;
-    var commentType = Math.floor(intake/range);
+    var commentType = Math.floor(coffee_count/range);
     //bounds check. If you get a high value, it defaults to the last set of comments
     if(commentType > getLength(myJson.comments))
         commentType = getLength(myJson.comments) - 1;
@@ -70,8 +70,8 @@ function getLength(comments)
 HowMany.prototype.onHistory = function(history) {
   var coffee_html = [];
   var coffee_counts = getCoffeeCount(history);
-  $('#coffee_html').html(coffee_html.join(''));
-  $('#coffee_counts').html(coffee_counts + '');
+  var random_coffee_fact = getRandomCoffeeFunFact(coffee_counts);
+  $('#coffee_fact').html(random_coffee_fact + '');
 }
 
 $(function() {
